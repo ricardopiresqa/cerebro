@@ -1,0 +1,41 @@
+# RAG database (local only)
+_rag/
+
+# Backups
+_backups/
+
+# Temp data
+_blaze/
+*.job.json
+
+# Playwright
+.playwright-mcp/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment (NEVER commit real .env)
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+
+# Obsidian workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Test results
+tests/results/

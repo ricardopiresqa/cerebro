@@ -1,0 +1,27 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      run: npm run lint || yarn lint || npx eslint . --ext .js,.jsx,.ts,.tsx,.vue
+    test:
+      run: npm test || yarn test || npm run test:unit
+    format-check:
+      run: npm run format:check || npx prettier --check .
+    security-scan:
+      run: npm audit || npx npm-audit-check --severity moderate
+
+pre-push:
+  parallel: false
+  commands:
+    security:
+      run: npm audit || npx npm-audit-check --severity high
+    test:
+      run: npm test || yarn test || npm run test:ci
+    verify:
+      run: npm run verify || npx verify-code
+
+commit-msg:
+  parallel: false
+  commands:
+    conventional-commits:
+      run: npx commitlint --edit $1
